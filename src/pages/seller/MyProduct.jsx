@@ -33,7 +33,7 @@ const MyProduct = () => {
   },[])
   
   const fetchProduct = async () =>{
-      await axios.get(`http://localhost:6001/fetch-product-details/${id}`).then(
+      await axios.get(`https://auction-backend-weeb.onrender.com/fetch-product-details/${id}`).then(
           async(response)=>{
               setProduct(response.data);
               setProductName(response.data.title);
@@ -69,7 +69,7 @@ const MyProduct = () => {
 
     if(String(totalDays) === "0-1"){
         
-        await axios.get(`http://localhost:6001/close-bidding/${id}`).then(
+        await axios.get(`https://auction-backend-weeb.onrender.com/close-bidding/${id}`).then(
             (response)=>{
                 fetchProduct();
             }
@@ -87,7 +87,7 @@ const MyProduct = () => {
   },[])
   
   const fetchBids = async () =>{
-      await axios.get(`http://localhost:6001/fetch-bids`).then(
+      await axios.get(`https://auction-backend-weeb.onrender.com/fetch-bids`).then(
           (response)=>{
               const data = response.data.filter((res)=> res.productId === id);
               setBids(data.reverse());

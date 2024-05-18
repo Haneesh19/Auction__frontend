@@ -30,7 +30,7 @@ const UpdateProduct = () => {
 
 
   const fetchProduct = async() =>{
-    await axios.get(`http://localhost:6001/fetch-product-details/${id}`).then(
+    await axios.get(`https://auction-backend-weeb.onrender.com/fetch-product-details/${id}`).then(
       (response)=>{
         setProductName(response.data.title);
         setProductDescription(response.data.description);
@@ -47,7 +47,7 @@ const UpdateProduct = () => {
 
 
   const fetchCategories = async () =>{
-    await axios.get('http://localhost:6001/fetch-categories').then(
+    await axios.get('https://auction-backend-weeb.onrender.com/fetch-categories').then(
       (response)=>{
         setAvailableCategories(response.data);
       }
@@ -61,7 +61,7 @@ const UpdateProduct = () => {
 
 
   const handleUpdateProduct = async() =>{
-    await axios.put(`http://localhost:6001/update-product/${id}`, {productName, productDescription, productMainImg, 
+    await axios.put(`https://auction-backend-weeb.onrender.com/update-product/${id}`, {productName, productDescription, productMainImg, 
                                               productCarousel: [productCarouselImg1, productCarouselImg2, productCarouselImg3], 
                                               productCategory, productNewCategory, auctionCloseTime, productStartPrice}).then(
       (response)=>{

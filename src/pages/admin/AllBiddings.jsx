@@ -14,7 +14,7 @@ const AllBiddings = () => {
   },[])
   
   const fetchBids = async () =>{
-      await axios.get(`http://localhost:6001/fetch-bids`).then(
+      await axios.get(`https://auction-backend-weeb.onrender.com/fetch-bids`).then(
           (response)=>{
               setBids(response.data.reverse());
           }

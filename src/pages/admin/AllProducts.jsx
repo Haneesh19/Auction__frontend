@@ -17,13 +17,13 @@ const AllProducts = () => {
     
       const fetchData = async() =>{
 
-        await axios.get('http://localhost:6001/fetch-products').then(
+        await axios.get('https://auction-backend-weeb.onrender.com/fetch-products').then(
           (response)=>{ 
             setProducts(response.data);
             setVisibleProducts(response.data);
           }
         )
-        await axios.get('http://localhost:6001/fetch-categories').then(
+        await axios.get('https://auction-backend-weeb.onrender.com/fetch-categories').then(
           (response)=>{
             setCategories(response.data);
           }

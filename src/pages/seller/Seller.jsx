@@ -24,7 +24,7 @@ const Seller = () => {
 
 
   const fetchUserData = async() =>{
-    await axios.get(`http://localhost:6001/fetch-user/${localStorage.getItem('userId')}`).then(
+    await axios.get(`https://auction-backend-weeb.onrender.com/fetch-user/${localStorage.getItem('userId')}`).then(
       (response)=>{
         setUserData(response.data);
       }
@@ -34,7 +34,7 @@ const Seller = () => {
 
 
   const fetchProducts = async() =>{
-    await axios.get('http://localhost:6001/fetch-products').then(
+    await axios.get('https://auction-backend-weeb.onrender.com/fetch-products').then(
       (response)=>{
         const pros = response.data.filter((product)=> product.sellerId === localStorage.getItem("userId"));
         setProducts(pros.length);
@@ -46,7 +46,7 @@ const Seller = () => {
 
 
 const fetchBids = async () =>{
-    await axios.get(`http://localhost:6001/fetch-bids`).then(
+    await axios.get(`https://auction-backend-weeb.onrender.com/fetch-bids`).then(
         (response)=>{
           const data = response.data.filter((bid)=> bid.sellerId === localStorage.getItem("userId"))
           setBidsCount(data.length);
@@ -57,7 +57,7 @@ const fetchBids = async () =>{
 
 
 const handleWithdraw = async()=>{
-  await axios.get(`http://localhost:6001/seller-fund-withdraw/${localStorage.getItem('userId')}`).then(
+  await axios.get(`https://auction-backend-weeb.onrender.com/seller-fund-withdraw/${localStorage.getItem('userId')}`).then(
     (response)=>{
       alert("Funds withdrawn successfully!!");
       fetchUserData();

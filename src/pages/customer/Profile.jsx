@@ -28,7 +28,7 @@ const Profile = () => {
  },[])
 
  const fetchUser = async() =>{
-  await axios.get(`http://localhost:6001/fetch-user/${userId}`).then(
+  await axios.get(`https://auction-backend-weeb.onrender.com/fetch-user/${userId}`).then(
     (response)=>{
       setUserData(response.data);
     }
@@ -48,7 +48,7 @@ const Profile = () => {
 
   const deposit = async (e)=>{
     e.preventDefault();
-    await axios.post('http://localhost:6001/deposit', {userId: localStorage.getItem('userId'), depositAmount, depositMode}).then(
+    await axios.post('https://auction-backend-weeb.onrender.com/deposit', {userId: localStorage.getItem('userId'), depositAmount, depositMode}).then(
       (response)=>{
         alert("Deposit successful!!");
         fetchUser();
@@ -67,7 +67,7 @@ const Profile = () => {
     e.preventDefault();
     if(withdrawAmount <= userData.funds){
 
-        await axios.post('http://localhost:6001/user-withdraw', {userId: localStorage.getItem('userId'), withdrawAmount, withdrawMode}).then(
+        await axios.post('https://auction-backend-weeb.onrender.com/user-withdraw', {userId: localStorage.getItem('userId'), withdrawAmount, withdrawMode}).then(
           (response)=>{
             fetchTransactions();
             setActionType('Transactions');
@@ -89,7 +89,7 @@ const Profile = () => {
   }, [])
 
   const fetchTransactions = async()=>{
-    await axios.get('http://localhost:6001/fetch-transactions').then(
+    await axios.get('https://auction-backend-weeb.onrender.com/fetch-transactions').then(
       (response)=>{
         setTransactions(response.data.reverse());
       }
@@ -105,7 +105,7 @@ const Profile = () => {
 },[])
 
 const fetchBids = async () =>{
-    await axios.get(`http://localhost:6001/fetch-bids`).then(
+    await axios.get(`https://auction-backend-weeb.onrender.com/fetch-bids`).then(
         (response)=>{
             const data = response.data.filter((res)=> res.bidderId === localStorage.getItem("userId"));
             setBids(data.reverse());
@@ -116,7 +116,7 @@ const fetchBids = async () =>{
 const [products, setProducts] = useState([]);
 
 const fetchProducts = async () =>{
-  await axios.get(`http://localhost:6001/fetch-products`).then(
+  await axios.get(`https://auction-backend-weeb.onrender.com/fetch-products`).then(
       (response)=>{
           const data = response.data.filter((res)=> res.topBid.bidderId === localStorage.getItem("userId") && res.status === "sold" );
           setProducts(data.reverse());

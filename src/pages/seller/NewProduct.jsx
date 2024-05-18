@@ -24,7 +24,7 @@ const NewProduct = () => {
     fetchCategories();
   },[])
   const fetchCategories = async () =>{
-    await axios.get('http://localhost:6001/fetch-categories').then(
+    await axios.get('https://auction-backend-weeb.onrender.com/fetch-categories').then(
       (response)=>{
         setAvailableCategories(response.data);
       }
@@ -36,7 +36,7 @@ const NewProduct = () => {
 
 
   const handleNewProduct = async() =>{
-    await axios.post('http://localhost:6001/add-new-product', {sellerId: localStorage.getItem("userId"), sellerName: localStorage.getItem("username"), sellerEmail: localStorage.getItem("email"), productName, productDescription, productMainImg, 
+    await axios.post('https://auction-backend-weeb.onrender.com/add-new-product', {sellerId: localStorage.getItem("userId"), sellerName: localStorage.getItem("username"), sellerEmail: localStorage.getItem("email"), productName, productDescription, productMainImg, 
                       productCarousel: [productCarouselImg1, productCarouselImg2, productCarouselImg3], 
                        productCategory, productNewCategory, auctionCloseTime, productStartPrice}).then(
       (response)=>{

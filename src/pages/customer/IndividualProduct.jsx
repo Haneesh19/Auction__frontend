@@ -34,7 +34,7 @@ useEffect(()=>{
 },[])
 
 const fetchProduct = async () =>{
-    await axios.get(`http://localhost:6001/fetch-product-details/${id}`).then(
+    await axios.get(`https://auction-backend-weeb.onrender.com/fetch-product-details/${id}`).then(
         async (response)=>{
             setProduct(response.data);
             setProductName(response.data.title);
@@ -73,7 +73,7 @@ const findRemainingTime = async (closingTime) =>{
 
     if(String(totalDays) === "0-1"){
         
-        await axios.get(`http://localhost:6001/close-bidding/${id}`).then(
+        await axios.get(`https://auction-backend-weeb.onrender.com/close-bidding/${id}`).then(
             (response)=>{
                 fetchProduct();
             }
@@ -91,7 +91,7 @@ const handleBidding = async() =>{
         alert("Bid must be higher that current bid!!");
     }else{
 
-        await axios.post('http://localhost:6001/make-bidding',{productId: id, title: productName, description: productDescription, mainImg: productMainImg, bidderId: localStorage.getItem("userId"), bidderName: localStorage.getItem("username"), bidderEmail: localStorage.getItem("email"), bidAmount: bidAmount, bidTime: new Date()}).then(
+        await axios.post('https://auction-backend-weeb.onrender.com/make-bidding',{productId: id, title: productName, description: productDescription, mainImg: productMainImg, bidderId: localStorage.getItem("userId"), bidderName: localStorage.getItem("username"), bidderEmail: localStorage.getItem("email"), bidAmount: bidAmount, bidTime: new Date()}).then(
             (response)=>{
                 alert('Bidding successful!!');
                 setBidAmount(0);
@@ -117,7 +117,7 @@ useEffect(()=>{
 },[])
 
 const fetchBids = async () =>{
-    await axios.get(`http://localhost:6001/fetch-bids`).then(
+    await axios.get(`https://auction-backend-weeb.onrender.com/fetch-bids`).then(
         (response)=>{
             const data = response.data.filter((res)=> res.productId === id);
             setBids(data.reverse());

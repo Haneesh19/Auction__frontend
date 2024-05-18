@@ -21,7 +21,7 @@ const Admin = () => {
   }, [])
 
   const fetchUsers = async() =>{
-    await axios.get('http://localhost:6001/fetch-users').then(
+    await axios.get('https://auction-backend-weeb.onrender.com/fetch-users').then(
       (response)=>{
         setUsers(response.data);
         
@@ -30,7 +30,7 @@ const Admin = () => {
   }
 
   const fetchProducts = async() =>{
-    await axios.get('http://localhost:6001/fetch-products').then(
+    await axios.get('https://auction-backend-weeb.onrender.com/fetch-products').then(
       (response)=>{
         setProductsCount(response.data.length);
         
@@ -44,7 +44,7 @@ const Admin = () => {
   },[])
   
   const fetchBids = async () =>{
-      await axios.get(`http://localhost:6001/fetch-bids`).then(
+      await axios.get(`https://auction-backend-weeb.onrender.com/fetch-bids`).then(
           (response)=>{
               setBidsCount(response.data.length);
           }
@@ -52,7 +52,7 @@ const Admin = () => {
   }
 
   const approveUser = async(id) =>{
-    await axios.post('http://localhost:6001/approve-seller', {id}).then(
+    await axios.post('https://auction-backend-weeb.onrender.com/approve-seller', {id}).then(
       (response)=>{
         alert('Seller approved!');
         fetchUsers();
@@ -61,7 +61,7 @@ const Admin = () => {
   }
 
   const rejectUser = async(id) =>{
-    await axios.post('http://localhost:6001/reject-seller', {id}).then(
+    await axios.post('https://auction-backend-weeb.onrender.com/reject-seller', {id}).then(
       (response)=>{
         alert('Seller Rejected!');
         fetchUsers();

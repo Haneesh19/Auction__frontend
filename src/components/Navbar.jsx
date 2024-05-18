@@ -28,7 +28,7 @@ const Navbar = () => {
 
   const fetchData = async() =>{
 
-    await axios.get('http://localhost:6001/fetch-categories').then(
+    await axios.get('https://auction-backend-weeb.onrender.com/fetch-categories').then(
       (response)=>{
         setCategories(response.data);
       }

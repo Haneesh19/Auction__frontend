@@ -12,7 +12,7 @@ const AllUsers = () => {
   }, [])
 
   const fetchUsersData = async() =>{
-    await axios.get('http://localhost:6001/fetch-users').then(
+    await axios.get('https://auction-backend-weeb.onrender.com/fetch-users').then(
       (response)=>{
         setUsers(response.data.filter(user=> user.usertype === 'customer' || user.usertype === 'seller'));
       }
