@@ -1,5 +1,6 @@
 ## AUCTION PLATFORM USING MERN   
-- UI
+- UI   
+
 <a href="https://ibb.co/t82ZRLr"><img src="https://i.ibb.co/bzvHtb9/Screenshot-348.png" alt="Screenshot-348" border="0"></a>   
 
 - LOGIN PAGE   
